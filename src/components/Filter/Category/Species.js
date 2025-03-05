@@ -1,9 +1,29 @@
 "use client";
-import React from "react";
-import FilterButton from "../FilterButton";
+import { useState } from "react";
+import { Globe, Check } from "lucide-react";
+
+const FilterButton = ({ input, isActive, onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center justify-between px-4 py-2 rounded-md transition-all
+                ${
+                  isActive
+                    ? "bg-blue-100 text-blue-700 font-medium border border-blue-300"
+                    : "bg-white hover:bg-gray-50 text-gray-700 border border-gray-200"
+                }`}
+    >
+      <span>{input}</span>
+      {isActive && <Check size={16} className="text-blue-600" />}
+    </button>
+  );
+};
 
 const Species = ({ setSpecies, setPage }) => {
-  let species = [
+  const [activeSpecies, setActiveSpecies] = useState(null);
+
+  const species = [
+    "All",
     "Human",
     "Alien",
     "Humanoid",
@@ -15,21 +35,34 @@ const Species = ({ setSpecies, setPage }) => {
     "Robot",
     "Cronenberg",
   ];
+
+  const handleSpeciesSelect = (speciesName) => {
+    if (activeSpecies === speciesName || speciesName === "All") {
+      setActiveSpecies(null);
+      setSpecies("");
+    } else {
+      setActiveSpecies(speciesName);
+      setSpecies(speciesName);
+    }
+    setPage(1);
+  };
+
   return (
-    <div className="bg-[#F3F4F6] mt-4 py-2 px-1 rounded-lg  flex flex-col gap-[1.5rem]">
-      <div className="text-base">Species</div>
-      <div className="flex flex-col gap-[1.2rem]">
-        {" "}
-        {species.map((item, index) => (
+    <div className="bg-gray-50 rounded-lg shadow-sm border border-gray-200 overflow-hidden ">
+      <div className="px-4 py-3 bg-gray-100 border-b border-gray-200 flex items-center gap-2">
+        <Globe size={18} className="text-gray-500" />
+        <h3 className="font-medium text-gray-800">Species</h3>
+      </div>
+
+      <div className="p-3 grid grid-cols-1 gap-2">
+        {species.map((item) => (
           <FilterButton
-            key={index}
-            index={index}
-            name="species"
+            key={item}
             input={item}
-            task={setSpecies}
-            setPage={setPage}
-          ></FilterButton>
-        ))}{" "}
+            isActive={activeSpecies === item}
+            onClick={() => handleSpeciesSelect(item)}
+          />
+        ))}
       </div>
     </div>
   );
