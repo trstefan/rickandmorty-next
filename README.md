@@ -1,6 +1,33 @@
-# Rick and Morty Next.js Project
+# Rick and Morty Explorer 🚀👽
 
-Welcome to the Rick and Morty Next.js project! This project is a web application built with Next.js that allows users to explore characters, episodes, and locations from the Rick and Morty universe.
+[Live Demo](https://rickandmortyuniverse-iota.vercel.app/)
+
+## Description
+
+Dive into the multiverse of Rick and Morty! This Next.js web application provides a user-friendly interface to explore detailed information about your favorite characters, episodes, and locations from the hit animated series. Powered by the official Rick and Morty API, it offers a seamless and visually appealing way to discover everything the show has to offer. Get schwifty!
+
+## Screenshot
+
+![Home Page](./assets/home.png)
+
+<div align="center">
+   <table>
+      <tr>
+         <td align="center">
+            <img src="./assets/characters.png" alt="Characters Page" width="300"/>
+            <p>Characters Page</p>
+         </td>
+         <td align="center">
+            <img src="./assets/episodes.png" alt="Episodes Page" width="300"/>
+            <p>Episodes Page</p>
+         </td>
+         <td align="center">
+            <img src="./assets/locations.png" alt="Locations Page" width="300"/>
+            <p>Locations Page</p>
+         </td>
+      </tr>
+   </table>
+</div>
 
 ## Table of Contents
 
@@ -11,9 +38,9 @@ Welcome to the Rick and Morty Next.js project! This project is a web application
 
 ## Features
 
-- Browse and search for characters from the Rick and Morty series.
-- View detailed information about each character.
-- Explore episodes and locations from the show.
+- **Character Exploration with Filtering:** Dive deep into character details and utilize powerful filtering options to find specific characters based on their attributes.
+- **Episode Character Lists:** Quickly identify all the characters featured in any given Rick and Morty episode.
+- **Location Resident Directory:** Discover which characters reside in or have been associated with specific locations throughout the multiverse.
 
 ## Installation
 
